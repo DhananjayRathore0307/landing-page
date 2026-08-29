@@ -142,76 +142,13 @@ export default function ContactSection() {
             transition={{ delay: 0.2 }}
             className="mt-5 text-lg text-neutral-500"
           >
-            Ready to transform your infrastructure? Drop us a message and
-            we&apos;ll get back to you within 24 hours.
+            Have an idea, a business challenge, or an existing application that needs
+            improvement? Tell us what you&apos;re looking to build and our team will get
+            back to you to discuss your requirements.
           </motion.p>
         </div>
 
-        <div className="grid lg:grid-cols-5 gap-8 lg:gap-12 max-w-6xl mx-auto">
-          {/* Contact Info */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ delay: 0.3 }}
-            className="lg:col-span-2 space-y-8"
-          >
-            <div>
-              <h3 className="text-xl font-bold text-neutral-900 mb-2">
-                Contact Information
-              </h3>
-              <p className="text-neutral-500 text-sm">
-                Reach out through any of these channels and we&apos;ll respond
-                promptly.
-              </p>
-            </div>
-
-            <div className="space-y-4">
-              {contactInfo.map((info, i) => (
-                <motion.div
-                  key={info.label}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={inView ? { opacity: 1, x: 0 } : {}}
-                  transition={{ delay: 0.4 + i * 0.1 }}
-                  className="flex items-center gap-4 p-4 bg-white rounded-xl border border-neutral-100 hover:border-primary-100 hover:shadow-card transition-all duration-300"
-                >
-                  <div className="w-10 h-10 bg-primary-50 rounded-lg flex items-center justify-center text-primary-600">
-                    {info.icon}
-                  </div>
-                  <div>
-                    <p className="text-xs text-neutral-400 font-medium uppercase tracking-wider">
-                      {info.label}
-                    </p>
-                    <p className="text-sm font-semibold text-neutral-800">
-                      {info.value}
-                    </p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-
-            {/* Social links */}
-            <div>
-              <p className="text-sm font-semibold text-neutral-700 mb-3">
-                Follow us
-              </p>
-              <div className="flex gap-3">
-                {["Twitter", "LinkedIn", "GitHub", "Discord"].map((social) => (
-                  <motion.a
-                    key={social}
-                    href="#"
-                    whileHover={{ scale: 1.1, y: -2 }}
-                    className="w-10 h-10 bg-white border border-neutral-100 rounded-xl flex items-center justify-center text-neutral-400 hover:text-primary-600 hover:border-primary-200 transition-all duration-300"
-                    title={social}
-                  >
-                    <span className="text-xs font-bold">
-                      {social[0]}
-                    </span>
-                  </motion.a>
-                ))}
-              </div>
-            </div>
-          </motion.div>
-
+        <div className="max-w-2xl mx-auto">
           {/* Form */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
@@ -261,7 +198,7 @@ export default function ContactSection() {
                         name="name"
                         value={formData.name}
                         onChange={handleChange}
-                        placeholder="John Doe"
+                        placeholder="Your Name"
                         className={`input-field ${
                           errors.name
                             ? "border-red-300 focus:ring-red-500/20 focus:border-red-400"
@@ -287,7 +224,7 @@ export default function ContactSection() {
                         name="email"
                         value={formData.email}
                         onChange={handleChange}
-                        placeholder="john@company.com"
+                        placeholder="email@example.com"
                         className={`input-field ${
                           errors.email
                             ? "border-red-300 focus:ring-red-500/20 focus:border-red-400"
@@ -316,7 +253,7 @@ export default function ContactSection() {
                         name="company"
                         value={formData.company}
                         onChange={handleChange}
-                        placeholder="Acme Inc."
+                        placeholder="Your Company"
                         className="input-field"
                       />
                     </div>
@@ -334,12 +271,15 @@ export default function ContactSection() {
                             : ""
                         } ${!formData.subject ? "text-neutral-400" : ""}`}
                       >
-                        <option value="">Select a topic</option>
-                        <option value="general">General Inquiry</option>
-                        <option value="sales">Sales & Pricing</option>
-                        <option value="support">Technical Support</option>
-                        <option value="partnership">Partnership</option>
-                        <option value="demo">Request a Demo</option>
+                        <option value="">What can we help you with?</option>
+                        <option value="web-development">Web Application Development</option>
+                        <option value="mobile-development">Mobile Application Development</option>
+                        <option value="custom-software">Custom Software Development</option>
+                        <option value="automation">Business Automation</option>
+                        <option value="api-development">API & Backend Development</option>
+                        <option value="ui-ux">UI/UX & Frontend Development</option>
+                        <option value="maintenance">Maintenance & Support</option>
+                        <option value="other">Other</option>
                       </select>
                       {errors.subject && (
                         <motion.p

@@ -2,6 +2,13 @@
 
 import { motion } from "framer-motion";
 import ParticleCanvas from "./ParticleCanvas";
+import {
+  GlobeAltIcon,
+  DevicePhoneMobileIcon,
+  BoltIcon,
+  CodeBracketIcon,
+  ArrowRightIcon,
+} from "@heroicons/react/24/outline";
 
 export default function HeroSection() {
   return (
@@ -20,42 +27,33 @@ export default function HeroSection() {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left Content */}
           <div className="text-center lg:text-left">
+            {/* Small Badge */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
               className="mb-6"
-            >
-              <span className="section-badge">
-                <span className="w-2 h-2 bg-accent-500 rounded-full animate-pulse" />
-                Now in Public Beta — Try it Free
-              </span>
-            </motion.div>
+            ></motion.div>
 
+            {/* Main Heading */}
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.6 }}
               className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-[1.1] tracking-tight text-balance"
             >
-              Build Smarter.
+              We Build Digital
               <br />
-              <span className="gradient-text">Scale Faster.</span>
+              <span className="gradient-text">Solutions That</span>
               <br />
-              Ship{" "}
               <span className="relative inline-block">
-                Confidently
+                Drive Growth.
                 <svg
                   className="absolute -bottom-2 left-0 w-full"
                   viewBox="0 0 200 12"
                   fill="none"
                 >
-                  <path
-                    d="M2 8C40 3 80 2 100 4C120 6 160 8 198 3"
-                    stroke="url(#underline-gradient)"
-                    strokeWidth="3"
-                    strokeLinecap="round"
-                  />
+
                   <defs>
                     <linearGradient
                       id="underline-gradient"
@@ -70,28 +68,32 @@ export default function HeroSection() {
                   </defs>
                 </svg>
               </span>
-              .
             </motion.h1>
 
+            {/* Description */}
             <motion.p
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.6 }}
               className="mt-7 text-lg sm:text-xl text-neutral-500 leading-relaxed max-w-xl mx-auto lg:mx-0"
             >
-              NovaCloud empowers modern teams with enterprise-grade cloud
-              infrastructure, intelligent automation, and seamless DevOps
-              solutions — all in one powerful platform.
+              We design and develop powerful web applications, mobile apps,
+              custom software, and intelligent automation solutions that help
+              businesses work smarter, serve customers better, and grow faster.
             </motion.p>
 
+            {/* CTA Buttons */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.7, duration: 0.6 }}
               className="mt-10 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
             >
-              <a href="#contact" className="btn-primary text-base px-8 py-4 gap-2">
-                Start Free Trial
+              <a
+                href="#contact"
+                className="btn-primary text-base px-8 py-4 gap-2"
+              >
+                Start Your Project
                 <svg
                   className="w-5 h-5"
                   fill="none"
@@ -106,69 +108,32 @@ export default function HeroSection() {
                   />
                 </svg>
               </a>
-              <a
-                href="#features"
-                className="btn-secondary text-base px-8 py-4 gap-2"
-              >
-                <svg
-                  className="w-5 h-5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"
-                  />
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
-                Watch Demo
-              </a>
             </motion.div>
 
-            {/* Social proof */}
+            {/* Trust / Stats */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 1 }}
-              className="mt-12 flex flex-col sm:flex-row items-center gap-6 justify-center lg:justify-start"
+              className="mt-12 flex flex-wrap items-center gap-x-8 gap-y-5 justify-center lg:justify-start"
             >
-              <div className="flex -space-x-3">
-                {[1, 2, 3, 4, 5].map((i) => (
-                  <div
-                    key={i}
-                    className="w-10 h-10 rounded-full border-2 border-white shadow-md bg-gradient-to-br from-primary-300 to-accent-300 flex items-center justify-center"
-                  >
-                    <span className="text-white text-xs font-bold">
-                      {String.fromCharCode(64 + i)}
-                    </span>
-                  </div>
-                ))}
-              </div>
               <div>
-                <div className="flex items-center gap-1 mb-1">
-                  {[1, 2, 3, 4, 5].map((i) => (
-                    <svg
-                      key={i}
-                      className="w-4 h-4 text-amber-400"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                  ))}
-                </div>
-                <p className="text-sm text-neutral-500">
-                  <span className="font-semibold text-neutral-700">2,500+</span>{" "}
-                  teams trust NovaCloud
-                </p>
+                <p className="text-2xl font-bold text-neutral-800">50+</p>
+                <p className="text-sm text-neutral-500">Projects Delivered</p>
+              </div>
+
+              <div className="hidden sm:block w-px h-10 bg-neutral-200" />
+
+              <div>
+                <p className="text-2xl font-bold text-neutral-800">20+</p>
+                <p className="text-sm text-neutral-500">Happy Clients</p>
+              </div>
+
+              <div className="hidden sm:block w-px h-10 bg-neutral-200" />
+
+              <div>
+                <p className="text-2xl font-bold text-neutral-800">24/7</p>
+                <p className="text-sm text-neutral-500">Support & Assistance</p>
               </div>
             </motion.div>
           </div>
@@ -177,130 +142,155 @@ export default function HeroSection() {
           <motion.div
             initial={{ opacity: 0, scale: 0.9, x: 50 }}
             animate={{ opacity: 1, scale: 1, x: 0 }}
-            transition={{ delay: 0.5, duration: 0.8, ease: "easeOut" }}
+            transition={{
+              delay: 0.5,
+              duration: 0.8,
+              ease: "easeOut",
+            }}
             className="relative hidden lg:block"
           >
-            {/* Dashboard mockup */}
             <div className="relative">
-              <div className="absolute -inset-4 bg-gradient-to-r from-primary-500/20 to-accent-500/20 rounded-3xl blur-2xl" />
-              <div className="relative glass-card rounded-2xl p-1 shadow-premium-xl">
-                <div className="bg-white rounded-xl overflow-hidden">
-                  {/* Browser bar */}
-                  <div className="flex items-center gap-2 px-4 py-3 bg-neutral-50 border-b border-neutral-100">
+              {/* Glow */}
+              <div className="absolute -inset-6 bg-gradient-to-r from-primary-500/20 to-accent-500/20 rounded-[2rem] blur-3xl" />
+
+              {/* Main Card */}
+              <div className="relative glass-card rounded-3xl p-2 shadow-premium-xl">
+                <div className="bg-white rounded-2xl overflow-hidden">
+                  {/* Browser Bar */}
+                  <div className="flex items-center gap-2 px-5 py-4 bg-neutral-50 border-b border-neutral-100">
                     <div className="flex gap-1.5">
                       <div className="w-3 h-3 rounded-full bg-red-400" />
                       <div className="w-3 h-3 rounded-full bg-amber-400" />
                       <div className="w-3 h-3 rounded-full bg-green-400" />
                     </div>
+
                     <div className="flex-1 mx-4">
-                      <div className="bg-white rounded-lg px-4 py-1.5 text-xs text-neutral-400 border border-neutral-200 max-w-xs">
-                        app.novacloud.io/dashboard
+                      <div className="bg-white rounded-lg px-4 py-2 text-xs text-neutral-400 border border-neutral-200">
+                        yourbusiness.com
                       </div>
                     </div>
                   </div>
-                  {/* Dashboard content */}
-                  <div className="p-6 space-y-4">
-                    <div className="flex items-center justify-between">
-                      <h3 className="text-sm font-semibold text-neutral-800">
-                        Dashboard Overview
-                      </h3>
-                      <div className="flex gap-2">
-                        <div className="px-3 py-1 bg-primary-50 text-primary-600 rounded-lg text-xs font-medium">
-                          Live
-                        </div>
+
+                  {/* Application Preview */}
+                  <div className="p-6">
+                    {/* Header */}
+                    <div className="flex items-center justify-between mb-6">
+                      <div>
+                        <p className="text-xs text-neutral-400 mb-1">
+                          Digital Solution
+                        </p>
+
+                        <h3 className="text-lg font-bold text-neutral-800">
+                          Business Overview
+                        </h3>
+                      </div>
+
+                      <div className="px-3 py-1.5 bg-accent-50 text-accent-600 rounded-lg text-xs font-semibold">
+                        Live
                       </div>
                     </div>
-                    {/* Stats row */}
-                    <div className="grid grid-cols-3 gap-3">
+
+                    {/* Service Cards */}
+                    <div className="grid grid-cols-2 gap-3">
                       {[
-                        { label: "Active Users", value: "14.2K", change: "+12%", color: "primary" },
-                        { label: "Uptime", value: "99.99%", change: "Excellent", color: "accent" },
-                        { label: "API Calls", value: "2.8M", change: "+28%", color: "primary" },
-                      ].map((stat, i) => (
-                        <motion.div
-                          key={stat.label}
-                          initial={{ opacity: 0, y: 10 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ delay: 1 + i * 0.15 }}
-                          className="bg-neutral-50 rounded-xl p-3"
-                        >
-                          <p className="text-xs text-neutral-400 mb-1">
-                            {stat.label}
-                          </p>
-                          <p className="text-lg font-bold text-neutral-800">
-                            {stat.value}
-                          </p>
-                          <p
-                            className={`text-xs font-medium ${
-                              stat.color === "primary"
-                                ? "text-primary-500"
-                                : "text-accent-500"
-                            }`}
+                        {
+                          title: "Web Applications",
+                          subtitle: "Modern & Scalable",
+                          icon: GlobeAltIcon,
+                        },
+                        {
+                          title: "Mobile Applications",
+                          subtitle: "iOS & Android",
+                          icon: DevicePhoneMobileIcon,
+                        },
+                        {
+                          title: "Business Automation",
+                          subtitle: "Work Smarter",
+                          icon: BoltIcon,
+                        },
+                        {
+                          title: "Custom Software",
+                          subtitle: "Built For You",
+                          icon: CodeBracketIcon,
+                        },
+                      ].map((service, i) => {
+                        const Icon = service.icon;
+
+                        return (
+                          <motion.div
+                            key={service.title}
+                            initial={{ opacity: 0, y: 15 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{
+                              delay: 1 + i * 0.12,
+                              duration: 0.5,
+                            }}
+                            className="group bg-neutral-50 hover:bg-primary-50 rounded-xl p-4 transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
                           >
-                            {stat.change}
-                          </p>
-                        </motion.div>
-                      ))}
+                            <div className="flex items-center justify-between mb-4">
+                              <div className="w-10 h-10 rounded-lg bg-white shadow-sm flex items-center justify-center text-primary-500 group-hover:bg-primary-500 group-hover:text-white transition-all duration-300">
+                                <Icon className="w-5 h-5" />
+                              </div>
+
+                              <ArrowRightIcon className="w-4 h-4 text-neutral-300 group-hover:text-primary-500 group-hover:translate-x-1 transition-all duration-300" />
+                            </div>
+
+                            <p className="text-sm font-semibold text-neutral-800">
+                              {service.title}
+                            </p>
+
+                            <p className="text-xs text-neutral-400 mt-1">
+                              {service.subtitle}
+                            </p>
+                          </motion.div>
+                        );
+                      })}
                     </div>
-                    {/* Chart placeholder */}
-                    <div className="bg-neutral-50 rounded-xl p-4 h-36">
-                      <div className="flex items-end gap-1.5 h-full">
-                        {[40, 65, 45, 80, 55, 90, 70, 85, 60, 95, 75, 88].map(
-                          (h, i) => (
-                            <motion.div
-                              key={i}
-                              initial={{ height: 0 }}
-                              animate={{ height: `${h}%` }}
-                              transition={{ delay: 1.2 + i * 0.05, duration: 0.5 }}
-                              className={`flex-1 rounded-t-md ${
-                                i === 9
-                                  ? "bg-gradient-to-t from-primary-500 to-primary-400"
-                                  : "bg-gradient-to-t from-primary-200 to-primary-100"
-                              }`}
-                            />
-                          )
-                        )}
+
+                    {/* Progress / Project Area */}
+                    <div className="mt-4 bg-neutral-50 rounded-xl p-4">
+                      <div className="flex items-center justify-between mb-3">
+                        <div>
+                          <p className="text-xs text-neutral-400">
+                            Current Project
+                          </p>
+
+                          <p className="text-sm font-semibold text-neutral-800">
+                            Product Development
+                          </p>
+                        </div>
+
+                        <span className="text-xs font-semibold text-primary-500">
+                          85%
+                        </span>
+                      </div>
+
+                      <div className="h-2 bg-neutral-200 rounded-full overflow-hidden">
+                        <motion.div
+                          initial={{ width: 0 }}
+                          animate={{ width: "85%" }}
+                          transition={{
+                            delay: 1.5,
+                            duration: 1,
+                            ease: "easeOut",
+                          }}
+                          className="h-full rounded-full bg-gradient-to-r from-primary-500 to-accent-400"
+                        />
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* Floating cards */}
+              {/* Floating Card - Automation */}
               <motion.div
-                animate={{ y: [-5, 5, -5] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -left-16 top-20 glass-card rounded-xl p-4 shadow-premium-lg"
-              >
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
-                    <svg
-                      className="w-5 h-5 text-green-600"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                      />
-                    </svg>
-                  </div>
-                  <div>
-                    <p className="text-xs font-semibold text-neutral-800">
-                      Deploy Successful
-                    </p>
-                    <p className="text-xs text-neutral-400">2 min ago</p>
-                  </div>
-                </div>
-              </motion.div>
-
-              <motion.div
-                animate={{ y: [5, -5, 5] }}
-                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -right-8 bottom-24 glass-card rounded-xl p-4 shadow-premium-lg"
+                animate={{ y: [-6, 6, -6] }}
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+                className="absolute -left-14 top-24 glass-card rounded-xl p-4 shadow-premium-lg"
               >
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 bg-primary-100 rounded-lg flex items-center justify-center">
@@ -318,12 +308,53 @@ export default function HeroSection() {
                       />
                     </svg>
                   </div>
+
                   <div>
                     <p className="text-xs font-semibold text-neutral-800">
-                      Performance
+                      Automation
                     </p>
-                    <p className="text-xs text-accent-500 font-medium">
-                      98.5% Faster
+
+                    <p className="text-xs text-primary-500 font-medium">
+                      Work Smarter
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Floating Card - Project */}
+              <motion.div
+                animate={{ y: [6, -6, 6] }}
+                transition={{
+                  duration: 5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+                className="absolute -right-8 bottom-20 glass-card rounded-xl p-4 shadow-premium-lg"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
+                    <svg
+                      className="w-5 h-5 text-green-600"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                  </div>
+
+                  <div>
+                    <p className="text-xs font-semibold text-neutral-800">
+                      Project Delivered
+                    </p>
+
+                    <p className="text-xs text-green-500 font-medium">
+                      Successfully
                     </p>
                   </div>
                 </div>
@@ -332,7 +363,7 @@ export default function HeroSection() {
           </motion.div>
         </div>
 
-        {/* Trusted by logos */}
+        {/* Service Highlights */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
@@ -340,19 +371,25 @@ export default function HeroSection() {
           className="mt-20 pt-12 border-t border-neutral-200/50"
         >
           <p className="text-center text-xs uppercase tracking-[0.2em] text-neutral-400 font-medium mb-8">
-            Trusted by industry leaders worldwide
+            What We Build
           </p>
-          <div className="flex flex-wrap justify-center items-center gap-x-12 gap-y-6 opacity-40">
-            {["Google", "Microsoft", "Stripe", "Vercel", "Shopify", "Slack"].map(
-              (name) => (
-                <span
-                  key={name}
-                  className="text-xl font-bold text-neutral-400 hover:text-neutral-600 transition-colors cursor-default"
-                >
-                  {name}
-                </span>
-              )
-            )}
+
+          <div className="flex flex-wrap justify-center items-center gap-x-12 gap-y-6">
+            {[
+              "Web Applications",
+              "Mobile Applications",
+              "Custom Software",
+              "Automation",
+              "UI/UX Design",
+              "Digital Solutions",
+            ].map((service) => (
+              <span
+                key={service}
+                className="text-sm sm:text-base font-semibold text-neutral-400 hover:text-primary-500 transition-colors cursor-default"
+              >
+                {service}
+              </span>
+            ))}
           </div>
         </motion.div>
       </div>

@@ -1,26 +1,313 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* =========================================================
+   THEME
+   ========================================================= */
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@theme {
+  /* Primary */
+  --color-primary-50: #EEF2FF;
+  --color-primary-100: #E0E7FF;
+  --color-primary-200: #C7D2FE;
+  --color-primary-300: #A5B4FC;
+  --color-primary-400: #818CF8;
+  --color-primary-500: #6366F1;
+  --color-primary-600: #4F46E5;
+  --color-primary-700: #4338CA;
+  --color-primary-800: #3730A3;
+  --color-primary-900: #312E81;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  /* Accent */
+  --color-accent-50: #F0FDFA;
+  --color-accent-100: #CCFBF1;
+  --color-accent-200: #99F6E4;
+  --color-accent-300: #5EEAD4;
+  --color-accent-400: #2DD4BF;
+  --color-accent-500: #14B8A6;
+  --color-accent-600: #0D9488;
+  --color-accent-700: #0F766E;
+  --color-accent-800: #115E59;
+  --color-accent-900: #134E4A;
+
+  /* Neutral */
+  --color-neutral-50: #FAFBFC;
+  --color-neutral-100: #F4F6F8;
+  --color-neutral-150: #EBEEF2;
+  --color-neutral-200: #E2E6EC;
+  --color-neutral-300: #C8CED8;
+  --color-neutral-400: #9AA3B0;
+  --color-neutral-500: #6B7280;
+  --color-neutral-600: #4B5563;
+  --color-neutral-700: #374151;
+  --color-neutral-800: #1F2937;
+  --color-neutral-900: #111827;
+
+  /* Fonts */
+  --font-sans: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-display: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  /* Shadows */
+  --shadow-premium:
+    0 4px 6px -1px rgba(99, 102, 241, 0.1),
+    0 2px 4px -2px rgba(99, 102, 241, 0.1);
+
+  --shadow-premium-lg:
+    0 10px 15px -3px rgba(99, 102, 241, 0.15),
+    0 4px 6px -4px rgba(99, 102, 241, 0.1);
+
+  --shadow-premium-xl:
+    0 20px 25px -5px rgba(99, 102, 241, 0.15),
+    0 8px 10px -6px rgba(99, 102, 241, 0.1);
+
+  --shadow-glow:
+    0 0 40px rgba(99, 102, 241, 0.15);
+
+  --shadow-glow-accent:
+    0 0 40px rgba(20, 184, 166, 0.15);
+
+  --shadow-card:
+    0 1px 3px rgba(0, 0, 0, 0.04),
+    0 4px 12px rgba(0, 0, 0, 0.06);
+
+  --shadow-card-hover:
+    0 4px 8px rgba(0, 0, 0, 0.06),
+    0 12px 28px rgba(0, 0, 0, 0.1);
+
+  /* Animations */
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-float-slow: float 8s ease-in-out infinite;
+  --animate-float-fast: float 4s ease-in-out infinite;
+  --animate-pulse-soft: pulse-soft 3s ease-in-out infinite;
+  --animate-gradient: gradient 8s ease infinite;
+  --animate-slide-up: slide-up 0.5s ease-out;
+  --animate-slide-down: slide-down 0.3s ease-out;
+  --animate-fade-in: fade-in 0.6s ease-out;
+  --animate-scale-in: scale-in 0.4s ease-out;
+  --animate-spin-slow: spin 20s linear infinite;
+  --animate-bounce-gentle: bounce-gentle 2s ease-in-out infinite;
+
+  /* Keyframes */
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  @keyframes pulse-soft {
+    0%,
+    100% {
+      opacity: 1;
+    }
+
+    50% {
+      opacity: 0.7;
+    }
+  }
+
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+
+    50% {
+      background-position: 100% 50%;
+    }
+
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  @keyframes slide-up {
+    0% {
+      transform: translateY(30px);
+      opacity: 0;
+    }
+
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes slide-down {
+    0% {
+      transform: translateY(-10px);
+      opacity: 0;
+    }
+
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes scale-in {
+    0% {
+      transform: scale(0.95);
+      opacity: 0;
+    }
+
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  @keyframes bounce-gentle {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(-8px);
+    }
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* =========================================================
+   BASE
+   ========================================================= */
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: white;
+    color: var(--color-neutral-800);
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: var(--color-primary-200);
+    color: var(--color-primary-900);
+  }
+}
+
+/* =========================================================
+   COMPONENTS
+   ========================================================= */
+
+@layer components {
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary-600 via-primary-500 to-accent-500 bg-clip-text text-transparent;
+  }
+
+  .gradient-text-alt {
+    @apply bg-gradient-to-r from-primary-700 to-primary-500 bg-clip-text text-transparent;
+  }
+
+  .glass-card {
+    @apply border border-white/60 bg-white/70 shadow-card backdrop-blur-xl;
+  }
+
+  .glass-card-hover {
+    @apply hover:border-primary-100 hover:bg-white/90 hover:shadow-card-hover;
+  }
+
+  .premium-gradient {
+    background: linear-gradient(
+      135deg,
+      #EEF2FF 0%,
+      #F0FDFA 25%,
+      #FFFFFF 50%,
+      #E0E7FF 75%,
+      #CCFBF1 100%
+    );
+    background-size: 300% 300%;
+  }
+
+  .section-padding {
+    @apply py-20 md:py-28 lg:py-32;
+  }
+
+  .container-custom {
+    @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-primary-600 to-primary-500 px-7 py-3.5 text-sm font-semibold tracking-wide text-white shadow-premium transition-all duration-300 hover:-translate-y-0.5 hover:shadow-premium-lg;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-xl border-2 border-primary-200 bg-white px-7 py-3.5 text-sm font-semibold tracking-wide text-primary-600 transition-all duration-300 hover:-translate-y-0.5 hover:border-primary-400 hover:bg-primary-50;
+  }
+
+  .input-field {
+    @apply w-full rounded-xl border border-neutral-200 bg-neutral-50 px-4 py-3.5 text-sm text-neutral-800 placeholder-neutral-400 transition-all duration-300 focus:border-primary-400 focus:outline-none focus:ring-2 focus:ring-primary-500/20;
+  }
+
+  .section-badge {
+    @apply inline-flex items-center gap-2 rounded-full border border-primary-100 bg-primary-50 px-4 py-2 text-xs font-semibold uppercase tracking-widest text-primary-600;
+  }
+
+  .dot-pattern {
+    background-image: radial-gradient(
+      circle,
+      #C7D2FE 1px,
+      transparent 1px
+    );
+    background-size: 24px 24px;
+  }
+}
+
+/* =========================================================
+   UTILITIES
+   ========================================================= */
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* =========================================================
+   SCROLLBAR
+   ========================================================= */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--color-neutral-100);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-primary-300);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-primary-400);
+}
+
+/* =========================================================
+   CANVAS
+   ========================================================= */
+
+canvas {
+  display: block;
 }

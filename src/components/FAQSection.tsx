@@ -6,34 +6,34 @@ import { useInView } from "react-intersection-observer";
 
 const faqs = [
   {
-    question: "What is NovaCloud and how does it work?",
+    question: "What types of software solutions do you develop?",
     answer:
-      "NovaCloud is an all-in-one SaaS platform that provides cloud infrastructure, DevOps automation, and intelligent monitoring tools. Simply sign up, connect your codebase, and deploy in minutes. Our platform handles scaling, security, and performance optimization automatically.",
+      "We develop a wide range of digital solutions including web applications, mobile applications, custom software, business automation systems, dashboards, portals, and API-based solutions. We tailor every project to your specific business requirements and goals.",
   },
   {
-    question: "How does the pricing work?",
+    question: "Can you build a custom application for my business?",
     answer:
-      "We offer flexible pricing tiers starting with a generous free plan. Our paid plans scale based on usage — you only pay for what you use. Enterprise plans include custom pricing with dedicated support, SLA guarantees, and priority features.",
+      "Absolutely. We specialize in custom software development and can turn your idea, workflow, or business requirement into a complete digital solution. We work closely with you to understand your needs and build a solution that fits your business.",
   },
   {
-    question: "Is my data secure on NovaCloud?",
+    question: "What technologies do you use?",
     answer:
-      "Absolutely. Security is our top priority. We use AES-256 encryption at rest, TLS 1.3 for data in transit, and maintain SOC 2 Type II compliance. Our zero-trust architecture ensures that your data is protected at every layer of our infrastructure.",
+      "We use modern and reliable technologies based on the requirements of each project. Our development stack can include technologies such as Next.js, React, TypeScript, Node.js, mobile development frameworks, databases, APIs, and other tools needed to build a scalable and maintainable solution.",
   },
   {
-    question: "Can I integrate NovaCloud with my existing tools?",
+    question: "How long does it take to develop an application?",
     answer:
-      "Yes! NovaCloud integrates seamlessly with popular tools including GitHub, GitLab, Bitbucket, Slack, Jira, PagerDuty, and 100+ more through our REST API and native integrations. We also provide SDKs for major programming languages.",
+      "The timeline depends on the size, complexity, features, and requirements of the project. A simple application may take a few weeks, while a larger custom platform can take several months. After understanding your requirements, we provide a clear development roadmap and estimated timeline.",
   },
   {
-    question: "What kind of support do you offer?",
+    question: "How much does software development cost?",
     answer:
-      "All plans include access to our community forums and documentation. Pro plans include email support with 4-hour response times. Enterprise plans come with 24/7 dedicated support, a named customer success manager, and guaranteed SLAs.",
+      "Project cost depends on the scope, number of features, design requirements, integrations, technology, and development time. We provide a customized quotation after understanding your requirements so you know exactly what is included in the project.",
   },
   {
-    question: "How do I migrate from my current infrastructure?",
+    question: "Do you provide support after the project is launched?",
     answer:
-      "We provide comprehensive migration tools and dedicated migration support. Our team will work with you to create a custom migration plan, including automated migration scripts, parallel running, and zero-downtime cutover strategies.",
+      "Yes. We provide ongoing maintenance and technical support after launch. This can include bug fixes, performance improvements, security updates, new features, application updates, and other technical assistance as your business grows.",
   },
 ];
 
@@ -137,8 +137,18 @@ export default function FAQSection() {
               animate={inView ? { opacity: 1, y: 0 } : {}}
             >
               <span className="section-badge mb-4 inline-flex">
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                <svg
+                  className="w-4 h-4"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
                 </svg>
                 FAQ
               </span>
@@ -149,8 +159,7 @@ export default function FAQSection() {
               transition={{ delay: 0.1 }}
               className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-neutral-900 tracking-tight"
             >
-              Frequently Asked{" "}
-              <span className="gradient-text">Questions</span>
+              Frequently Asked <span className="gradient-text">Questions</span>
             </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 20 }}

@@ -3,50 +3,82 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useState, useEffect, useRef } from "react";
+import {
+  RocketLaunchIcon,
+  UserGroupIcon,
+  CodeBracketIcon,
+  GlobeAltIcon,
+  LightBulbIcon,
+  Cog6ToothIcon,
+  ShieldCheckIcon,
+  LifebuoyIcon,
+  ArrowPathIcon,
+  SparklesIcon,
+} from "@heroicons/react/24/outline";
 
 const stats = [
-  { value: 99.99, suffix: "%", label: "Uptime SLA", icon: "⚡" },
-  { value: 2500, suffix: "+", label: "Active Teams", icon: "👥" },
-  { value: 150, suffix: "M+", label: "API Calls/Day", icon: "🔄" },
-  { value: 45, suffix: "+", label: "Countries", icon: "🌍" },
+  {
+    value: 50,
+    suffix: "+",
+    label: "Projects Delivered",
+    icon: RocketLaunchIcon,
+  },
+  {
+    value: 20,
+    suffix: "+",
+    label: "Happy Clients",
+    icon: UserGroupIcon,
+  },
+  {
+    value: 5,
+    suffix: "+",
+    label: "Years of Experience",
+    icon: CodeBracketIcon,
+  },
+  {
+    value: 10,
+    suffix: "+",
+    label: "Countries Served",
+    icon: GlobeAltIcon,
+  },
 ];
 
 const benefits = [
   {
-    title: "Lightning Fast Deployment",
-    description: "Deploy in seconds with our automated CI/CD pipeline. Zero downtime deployments with instant rollback capabilities.",
-    icon: (
-      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
-      </svg>
-    ),
+    title: "Solutions Built Around Your Needs",
+    description:
+      "We understand your business requirements and build custom digital solutions that solve real problems instead of forcing you into a one-size-fits-all product.",
+    icon: LightBulbIcon,
   },
   {
-    title: "Enterprise Security",
-    description: "Bank-grade encryption, SOC 2 compliance, and zero-trust architecture protect your data at every layer.",
-    icon: (
-      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-      </svg>
-    ),
+    title: "Modern & Scalable Technology",
+    description:
+      "We use modern technologies and development practices to create reliable applications that are ready to grow with your business.",
+    icon: CodeBracketIcon,
   },
   {
-    title: "24/7 Expert Support",
-    description: "Our dedicated support team is available round-the-clock with average response times under 2 minutes.",
-    icon: (
-      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
-      </svg>
-    ),
+    title: "Smart Business Automation",
+    description:
+      "Reduce repetitive work and improve efficiency by automating everyday workflows, processes, and tasks across your business.",
+    icon: Cog6ToothIcon,
   },
   {
-    title: "Infinite Scalability",
-    description: "From startup to enterprise — our platform scales seamlessly to handle millions of requests without breaking a sweat.",
-    icon: (
-      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4" />
-      </svg>
-    ),
+    title: "Quality & Security",
+    description:
+      "From development to deployment, we follow quality-focused practices to build secure, stable, and dependable digital products.",
+    icon: ShieldCheckIcon,
+  },
+  {
+    title: "Continuous Improvement",
+    description:
+      "We don't stop at launch. Our team can continuously improve, optimize, and enhance your applications as your business evolves.",
+    icon: ArrowPathIcon,
+  },
+  {
+    title: "Dedicated Support",
+    description:
+      "Get ongoing technical assistance from a team that understands your product and is ready to help with updates, improvements, and issues.",
+    icon: LifebuoyIcon,
   },
 ];
 
@@ -94,7 +126,7 @@ function AnimatedCounter({
     <span ref={counterRef}>
       {value >= 100
         ? Math.floor(count).toLocaleString()
-        : count.toFixed(2)}
+        : count.toFixed(2).replace(/\.00$/, "")}
       {suffix}
     </span>
   );
@@ -214,10 +246,16 @@ function WaveCanvas() {
 }
 
 export default function AboutSection() {
-  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
 
   return (
-    <section id="about" className="section-padding bg-white relative overflow-hidden">
+    <section
+      id="about"
+      className="section-padding bg-white relative overflow-hidden"
+    >
       <WaveCanvas />
 
       <div className="container-custom relative z-10" ref={ref}>
@@ -228,80 +266,101 @@ export default function AboutSection() {
             animate={inView ? { opacity: 1, y: 0 } : {}}
           >
             <span className="section-badge mb-4 inline-flex">
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
-              </svg>
-              Why Choose Us
+              <SparklesIcon className="w-4 h-4" />
+              About Us
             </span>
           </motion.div>
+
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.1 }}
             className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-neutral-900 tracking-tight"
           >
-            Built for Teams That{" "}
-            <span className="gradient-text">Demand Excellence</span>
+            Your Technology Partner for{" "}
+            <span className="gradient-text">Digital Growth</span>
           </motion.h2>
+
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.2 }}
             className="mt-5 text-lg text-neutral-500 leading-relaxed"
           >
-            We don&apos;t just provide tools — we provide a competitive advantage.
-            Here&apos;s why thousands of companies choose NovaCloud.
+            We are a software development company helping businesses turn
+            ideas into powerful digital products. From web and mobile
+            applications to custom software and business automation, we build
+            technology that makes your business more efficient and ready for
+            what&apos;s next.
           </motion.p>
         </div>
 
         {/* Stats */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
-          {stats.map((stat, i) => (
-            <motion.div
-              key={stat.label}
-              initial={{ opacity: 0, y: 30 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.1 * i + 0.3 }}
-              className="relative group"
-            >
-              <div className="bg-gradient-to-br from-white to-neutral-50 border border-neutral-100 rounded-2xl p-6 text-center hover:shadow-card-hover hover:border-primary-100 transition-all duration-300">
-                <span className="text-2xl mb-3 block">{stat.icon}</span>
-                <div className="text-3xl sm:text-4xl font-extrabold gradient-text mb-2">
-                  <AnimatedCounter value={stat.value} suffix={stat.suffix} />
+          {stats.map((stat, i) => {
+            const Icon = stat.icon;
+
+            return (
+              <motion.div
+                key={stat.label}
+                initial={{ opacity: 0, y: 30 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ delay: 0.1 * i + 0.3 }}
+                className="relative group"
+              >
+                <div className="bg-gradient-to-br from-white to-neutral-50 border border-neutral-100 rounded-2xl p-6 text-center hover:shadow-card-hover hover:border-primary-100 transition-all duration-300">
+                  <div className="w-10 h-10 mx-auto mb-3 rounded-xl bg-primary-50 flex items-center justify-center">
+                    <Icon className="w-5 h-5 text-primary-600" />
+                  </div>
+
+                  <div className="text-3xl sm:text-4xl font-extrabold gradient-text mb-2">
+                    <AnimatedCounter
+                      value={stat.value}
+                      suffix={stat.suffix}
+                    />
+                  </div>
+
+                  <p className="text-sm text-neutral-500 font-medium">
+                    {stat.label}
+                  </p>
                 </div>
-                <p className="text-sm text-neutral-500 font-medium">
-                  {stat.label}
-                </p>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            );
+          })}
         </div>
 
         {/* Benefits */}
         <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
-          {benefits.map((benefit, i) => (
-            <motion.div
-              key={benefit.title}
-              initial={{ opacity: 0, y: 30 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.1 * i + 0.5 }}
-              className="group flex gap-5 p-6 rounded-2xl bg-white border border-neutral-100 hover:border-primary-100 hover:shadow-card-hover transition-all duration-300"
-            >
-              <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-primary-50 to-accent-50 rounded-xl flex items-center justify-center text-primary-600 group-hover:scale-110 transition-transform duration-300">
-                {benefit.icon}
-              </div>
-              <div>
-                <h3 className="text-lg font-bold text-neutral-900 mb-2">
-                  {benefit.title}
-                </h3>
-                <p className="text-neutral-500 text-sm leading-relaxed">
-                  {benefit.description}
-                </p>
-              </div>
-            </motion.div>
-          ))}
+          {benefits.map((benefit, i) => {
+            const Icon = benefit.icon;
+
+            return (
+              <motion.div
+                key={benefit.title}
+                initial={{ opacity: 0, y: 30 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ delay: 0.1 * i + 0.5 }}
+                className="group flex gap-5 p-6 rounded-2xl bg-white border border-neutral-100 hover:border-primary-100 hover:shadow-card-hover transition-all duration-300"
+              >
+                <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-primary-50 to-accent-50 rounded-xl flex items-center justify-center text-primary-600 group-hover:scale-110 transition-transform duration-300">
+                  <Icon className="w-6 h-6" strokeWidth={1.5} />
+                </div>
+
+                <div>
+                  <h3 className="text-lg font-bold text-neutral-900 mb-2">
+                    {benefit.title}
+                  </h3>
+
+                  <p className="text-neutral-500 text-sm leading-relaxed">
+                    {benefit.description}
+                  </p>
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>
   );
 }
+
