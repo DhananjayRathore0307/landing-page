@@ -5,7 +5,6 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
   { name: "Features", href: "#features" },
-  { name: "Technology", href: "#technology" },
   { name: "About", href: "#about" },
   { name: "FAQ", href: "#faq" },
   { name: "Contact", href: "#contact" },
@@ -72,15 +71,6 @@ export default function Navbar() {
           <div className="hidden md:flex items-center gap-3">
             <motion.a
               href="#contact"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.8 }}
-              className="text-sm font-medium text-neutral-600 hover:text-primary-600 transition-colors px-4 py-2"
-            >
-              Sign In
-            </motion.a>
-            <motion.a
-              href="#contact"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.9 }}
@@ -141,9 +131,6 @@ export default function Navbar() {
                 </motion.a>
               ))}
               <div className="pt-4 mt-2 border-t border-neutral-100 flex flex-col gap-2">
-                <a href="#contact" className="btn-secondary text-center">
-                  Sign In
-                </a>
                 <a href="#contact" className="btn-primary text-center">
                   Get Started Free
                 </a>

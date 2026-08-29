@@ -93,7 +93,7 @@ export default function HeroSection() {
                 href="#contact"
                 className="btn-primary text-base px-8 py-4 gap-2"
               >
-                Start Your Project
+                Get Started Free
                 <svg
                   className="w-5 h-5"
                   fill="none"

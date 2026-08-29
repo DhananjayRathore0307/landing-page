@@ -369,18 +369,6 @@ export default function ContactSection() {
                       </span>
                     )}
                   </motion.button>
-
-                  <p className="text-xs text-neutral-400 text-center">
-                    By submitting, you agree to our{" "}
-                    <a href="#" className="text-primary-500 hover:underline">
-                      Privacy Policy
-                    </a>{" "}
-                    and{" "}
-                    <a href="#" className="text-primary-500 hover:underline">
-                      Terms of Service
-                    </a>
-                    .
-                  </p>
                 </form>
               )}
             </div>
